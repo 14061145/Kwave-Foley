@@ -48,7 +48,7 @@
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
-    <style>.big-image {
+    <style>.small-video {
         width: 850px;
         height: 500px;
         display: block;
@@ -177,12 +177,12 @@
 
 
             <div class="column">
-                <video class="video-player" poster="" id="tree2" controls>
+                <video class="video-player big-video" poster="" id="tree2" controls>
                     <source src="content/v2/video/00.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="column">
-                <video class="video-player" poster="" id="tree2" controls>
+                <video class="video-player big-video" poster="" id="tree2" controls>
                     <source src="content/v2/video/01.mp4" type="video/mp4">
                 </video>
             </div>
@@ -199,9 +199,9 @@
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Abstract</h2>
-                <!--                <div style="display: flex; justify-content: center; align-items: center;">-->
-                <!--                    <img src="content/images/framework/intro.png" alt="MY ALT TEXT" style="width: 80%; height: 80%;"/>-->
-                <!--                </div>-->
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="content/v2/abstract.png" alt="MY ALT TEXT" style="width: 80%; height: 80%;"/>
+                    </div>
                 <div class="content has-text-justified">
                     <p style="font-size: 1.2em;">
                         We proposed Kwave-Foley, a large-scale multimodal stereo video sound effect generation model that generates high-quality stereo audio synchronized with video content. Kwave-Foley uses larger-scale multimodal data for training, with a total of 130 million training samples. In Kwave-Foley, we proposed a visual semantic representation module and a video audio-visual synchronization module to align video conditions with audio latent elements at the frame level to improve video semantic alignment and audio-visual synchronization, and together with text conditions, precisely control the generation of sound effects that match the video. In addition, we proposed a cross-modal audio sequence representation method that can achieve high-quality modeling in various scenarios such as sound effects, speech, singing, and music. We also proposed a stereo effect rendering method and gave it a significant sense of space, providing stereo directional rendering capabilities for specific directional targets and moving targets in the video. At the same time, in order to make up for the incomplete types and incomplete annotations of the open source benchmarkmar, we also open-sourced an industrial-level benchmark. Our experimental results show that Kwave-Foley trained with the stream matching objective achieves new audio-visual SOTA performance among public models in terms of audio quality, semantic alignment, and audio-visual synchronization.
@@ -226,9 +226,7 @@
             <div class="item">
                 <h2 class="content has-text-justified">
                     <p style="font-size: 1.2em;">
-                        <!-- The motivation behind our method. Human motion, similar to that of robots, involves planning the
-                        "end-effector" (EE), typically the hands, towards the target situation. The rest of the body
-                        then cooperates accordingly with the EE, using inverse kinematics principles. -->
+                        The core of Kwave-Foley is a multimodal-controlled flowmatching model. Text, video, and temporally extracted video frames serve as conditional inputs. The multimodal features are then fused via a Multimodal Joint Conditioning module, which feeds into the MMDit Block for processing. This module predicts VAE latents, which a pretrained mel decoder subsequently reconstructs into a monaural mel-spectrogram. The monaural spectrogram is then converted to stereo spectrogram via a Mono2Stereo module. Finally, the stereo spectrogram is passed through a vocoder to generate the output waveform.
                     </p>
                 </h2>
                 <div class="item">
